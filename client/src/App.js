@@ -2,11 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import Project from "./components/Project";
+import Form from "./components/Form";
 import "./App.css";
 
 function App() {
+  // State to hold data from fetch call
   const [data, setData] = useState(["Nothing Here Yet!"]);
-
+  // THe fetch call for initial data for load (will only call once on initial render)
   useEffect(() => {
     fetch("http://localhost:5000/api")
       .then((res) => res.json())
@@ -29,6 +31,7 @@ function App() {
           Add Project
         </button>
       </div>
+      {/* map the data to return a Project comp for each object in arr */}
       {data.map((project) => (
         <Project
           key={project.id}
@@ -38,6 +41,11 @@ function App() {
           desc={project.description}
         />
       ))}
+      <Form
+        title="Web Project"
+        url="www.bangphoto.co.uk"
+        desc="Portfolio build for professional portrait photographer"
+      />
     </div>
   );
 }
