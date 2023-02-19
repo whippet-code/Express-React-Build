@@ -8,6 +8,7 @@ import "./App.css";
 function App() {
   // State to hold data from fetch call
   const [data, setData] = useState(["Nothing Here Yet!"]);
+
   // THe fetch call for initial data for load (will only call once on initial render)
   useEffect(() => {
     fetch("http://localhost:5000/api")
@@ -15,8 +16,11 @@ function App() {
       .then((data) => setData(data));
   }, []);
 
+  // state for add project form
+  const [isAddProject, setAddProject] = useState(false);
+
   function addProject() {
-    console.log("Clicked!!!!!");
+    setAddProject((prevState) => (prevState = !prevState));
   }
 
   return (
@@ -31,7 +35,10 @@ function App() {
           Add Project
         </button>
       </div>
+      {isAddProject ? <Form /> : <hr></hr>}
+
       {/* map the data to return a Project comp for each object in arr */}
+
       {data.map((project) => (
         <Project
           key={project.id}
@@ -41,11 +48,6 @@ function App() {
           desc={project.description}
         />
       ))}
-      <Form
-        title="Web Project"
-        url="www.bangphoto.co.uk"
-        desc="Portfolio build for professional portrait photographer"
-      />
     </div>
   );
 }
