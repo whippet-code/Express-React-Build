@@ -1,8 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
+// import helper func
+import customFetch from "./helperFunctions/customFetch";
+
+// import Components
 import Project from "./components/Project";
 import Form from "./components/Form";
+
+// Stylesheet
 import "./App.css";
 
 function App() {

@@ -1,1 +1,5 @@
-[{"id":1,"title":"React Game!","description":"Simple react game","URL":"http://heroku.myapp/game/"},{"id":2,"title":"Online store","description":"Online store created with HTML, CSS and JavaScript.","URL":"http://git.com/myrepos/shop/index"},{"id":3,"title":"Developer Portfolio site","description":"Showcase of developers work","URL":"www.superamazing.dev"}]
+[
+  {"id":1,"title":"React Game!","description":"Simple react game","URL":"http://heroku.myapp/game/"},
+  {"id":2,"title":"Online store","description":"Online store created with HTML, CSS and JavaScript.","URL":"http://git.com/myrepos/shop/index"},
+  {"id":3,"title":"Developer Portfolio site","description":"Showcase of developers work","URL":"www.superamazing.dev"}
+]
