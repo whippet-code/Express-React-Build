@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 // import helper func
 import customFetch from "../helperFunctions/customFetch";
+
+import Form from "./Form";
 
 //stylesheet
 import "./componentStyles.css";
@@ -13,6 +17,13 @@ function Project(props) {
     customFetch(e.target.value, id);
   }
 
+  const [isEdit, setIsEdit] = useState(false);
+
+  // toggle render of project / form to edit project
+  function editProject() {
+    setIsEdit((prevState) => (prevState = !prevState));
+  }
+  // conditional render project div OR if edit button clicked then display form with data taken from props
   return (
     <article id={props.id}>
       <h3>{props.title}</h3>
@@ -20,13 +31,13 @@ function Project(props) {
         <h5>{props.url}</h5>
       </a>
       <hr></hr>
-      <section>{props.desc}</section>
+      <section>{props.description}</section>
       <section className="buttons">
         <button
           type="button"
           className="edit"
           value="POST"
-          onClick={handleClick}
+          onClick={editProject}
         >
           Edit
         </button>
@@ -39,6 +50,16 @@ function Project(props) {
           Delete
         </button>
       </section>
+      {isEdit ? (
+        <Form
+          id={props.id}
+          title={props.title}
+          desc={props.description}
+          url={props.url}
+        />
+      ) : (
+        ""
+      )}
     </article>
   );
 }

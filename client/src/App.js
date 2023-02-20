@@ -1,9 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-// import helper func
-import customFetch from "./helperFunctions/customFetch";
-
 // import Components
 import Project from "./components/Project";
 import Form from "./components/Form";
@@ -52,8 +49,8 @@ function App() {
           key={project.id}
           id={project.id}
           title={project.title}
-          url={project.URL}
-          desc={project.description}
+          url={project.url}
+          description={project.description}
         />
       ))}
     </div>

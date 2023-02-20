@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+// import helper function
+import customFetch from "../helperFunctions/customFetch";
+
 import "./componentStyles.css";
 
 function Form(props) {
@@ -10,8 +13,13 @@ function Form(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // make the fetch call here using state obj as data
-    // need an id
-    alert(projectData);
+    const project = projectData;
+    // create id for submitting call, or if it already had id (edit) use existing
+    const id = props.id ? props.id : new Date().toJSON();
+    project.id = id;
+    // make the call (method / Data)
+    // conditional depending upon if this is a PUT or PATCH (create or edit)
+    customFetch(props.id ? "PATCH" : "PUT", JSON.stringify(project));
   };
 
   // event handler to take form input and build state object
@@ -19,11 +27,15 @@ function Form(props) {
     // take input name & value for each and spread through the object with all the key value pairs (name:value) - effectivly build a new project object to submit in fetch call.
     const name = e.target.name;
     const value = e.target.value;
-    setProjectData((values) => ({ ...values, [name]: value }));
+    const newProject = (values) => ({ ...values, [name]: value });
+    // update state
+    setProjectData(newProject);
   };
 
   return (
     <form className="Form" onSubmit={handleSubmit}>
+      {/* hidden input to set project id */}
+      <input type="hidden" name="id" value={props.id} />
       <label>
         Title
         <input
@@ -48,7 +60,9 @@ function Form(props) {
           name="description"
           value={projectData.description || ""}
           onChange={handleChange}
-        ></textarea>
+        >
+          {props.description}
+        </textarea>
       </label>
       <input type="submit" onClick={handleSubmit} />
     </form>

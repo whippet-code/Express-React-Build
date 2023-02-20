@@ -8,7 +8,7 @@ function customFetch(method, data) {
     // Call to add a new project
     case "PUT":
       // convert input to send to json-string
-      JSON.stringify(data);
+      //JSON.stringify(data);
       // create call url for PUT req
       url = `${url}/api/${data}`;
       console.log("PUT call to " + url);
@@ -23,9 +23,9 @@ function customFetch(method, data) {
       // create call url for PATCH req
       url = `${url}/api/${data}`;
       console.log("PATCH call to " + url);
-      fetch(url, { method: "PATCH" }).then(() =>
-        console.log("Project updated")
-      );
+      // fetch(url, { method: "PATCH" }).then(() =>
+      //   console.log("Project updated")
+      // );
       return;
     // Call to delete a project
     case "DELETE":
