@@ -1,0 +1,5 @@
+[
+  {"id":1,"title":"Hangman Game","description":"Classic hangman built as a single page app using React. Utilising hooks for state management throughout the app, page display handled via React Router.","URL":"http://heroku.myapp/game/"},
+  {"id":2,"title":"Online store","description":"Online store created with HTML, CSS and JavaScript. Utilising session storage to allow customers to save, update items to basket and checkout","URL":"http://git.com/myrepos/shop/index"},
+  {"id":3,"title":"Developer Portfolio site","description":"Showcase of developers work, building fullstack web apps using the MERN technologies.","URL":"www.superamazing.dev"}
+]

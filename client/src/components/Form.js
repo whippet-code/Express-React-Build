@@ -6,24 +6,49 @@ function Form(props) {
   // State for project info????? OR state to track method of call to make upon submit
   const [projectData, setProjectData] = useState({});
 
-  function handleSubmit() {
-    // get info from form and turn into project object
-    // Can i just submit the call from here???? // Might need to track type of call update or new project
-    // if not above then update state
-    // make the call to api
-  }
+  // prevent default form action upon submitting
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(projectData);
+  };
+
+  // event handler to take form input and build state object
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setProjectData((values) => ({ ...values, [name]: value }));
+  };
 
   return (
-    <form className="Form">
-      <label>Title</label>
-      <input type="text" value={props.title}></input>
-      <label>Link</label>
-      <input type="url" value={props.url}></input>
-      <label>Description</label>
-      <textarea name="description">{props.desc}</textarea>
-      <button type="submit" onClick={handleSubmit}>
-        Submit
-      </button>
+    <form className="Form" onSubmit={handleSubmit}>
+      <label>
+        Title
+        <input
+          type="text"
+          name="title"
+          value={projectData.title || ""}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Link
+        <input
+          type="url"
+          name="url"
+          value={projectData.url || ""}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Description
+        <textarea
+          name="description"
+          value={projectData.description || ""}
+          onChange={handleChange}
+        ></textarea>
+      </label>
+      <input type="submit" />
+      Submit
     </form>
   );
 }
