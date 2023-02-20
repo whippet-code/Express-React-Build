@@ -6,6 +6,7 @@ article {
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin: 0.5rem;
+  padding-bottom: 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +35,8 @@ a {
   font-weight: 400;
 }
 
-.edit, .delete {
+.edit,
+.delete {
   width: 10rem;
 }
 
@@ -69,7 +71,8 @@ label {
   font-weight: 100;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 0.5rem;
   width: 75%;
   border: 1px solid lightblue;
@@ -78,7 +81,17 @@ input, textarea {
   background: aliceblue;
 }
 
-form>button {
+.formSubmit {
   margin: 0.2rem 0;
-  width:80%
+  width: 80%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: white;
+  color: cornflowerblue;
+  border: 3px solid cornflowerblue;
+  font-weight: 800;
+}
+
+.formSubmit:hover {
+  background: lightblue;
 }

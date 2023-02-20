@@ -34,37 +34,29 @@ function Form(props) {
 
   return (
     <form className="Form" onSubmit={handleSubmit}>
-      {/* hidden input to set project id */}
-      <input type="hidden" name="id" value={props.id} />
-      <label>
-        Title
-        <input
-          type="text"
-          name="title"
-          value={projectData.title || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Link
-        <input
-          type="url"
-          name="url"
-          value={projectData.url || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Description
-        <textarea
-          name="description"
-          value={projectData.description || ""}
-          onChange={handleChange}
-        >
-          {props.description}
-        </textarea>
-      </label>
-      <input type="submit" onClick={handleSubmit} />
+      <label>Title</label>
+      <input
+        type="text"
+        name="title"
+        value={projectData.title || ""}
+        onChange={handleChange}
+      />
+      <label>Link</label>
+      <input
+        type="url"
+        name="url"
+        value={projectData.url || ""}
+        onChange={handleChange}
+      />
+      <label>Description</label>
+      <textarea
+        name="description"
+        value={projectData.description || ""}
+        onChange={handleChange}
+      >
+        {props.description}
+      </textarea>
+      <input className="formSubmit" type="submit" onClick={handleSubmit} />
     </form>
   );
 }
