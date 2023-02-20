@@ -11,7 +11,7 @@ function Form(props) {
 
   // prevent default form action upon submitting
   const handleSubmit = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     // make the fetch call here using state obj as data
     const project = projectData;
     // create id for submitting call, or if it already had id (edit) use existing
@@ -40,6 +40,7 @@ function Form(props) {
         name="title"
         value={projectData.title || ""}
         onChange={handleChange}
+        required
       />
       <label>Link</label>
       <input
@@ -47,12 +48,14 @@ function Form(props) {
         name="url"
         value={projectData.url || ""}
         onChange={handleChange}
+        required
       />
       <label>Description</label>
       <textarea
         name="description"
         value={projectData.description || ""}
         onChange={handleChange}
+        required
       >
         {props.description}
       </textarea>
