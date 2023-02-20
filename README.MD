@@ -1,4 +1,13 @@
-# API usage and sample requests
+# Hyperiondev - Express React app
+
+### Web project Tracker
+
+To keep a log of projects built, allowing creation of new projects, updates to existing projects and removal of projects.
+A JSON file holding the data is updated via fetch api calls from the react app, via an express server.
+
+## Below are the api calls created for handling the fetch requests
+
+### API usage and sample requests
 
 api allows for adding, reading, updating and deleting of file data.
 Please note all type of data required for each.
