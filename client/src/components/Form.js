@@ -11,7 +11,8 @@ function Form(props) {
 
   // prevent default form action upon submitting
   const handleSubmit = (e) => {
-    //e.preventDefault();
+    // prevent default if form is correct?
+    e.preventDefault();
     // make the fetch call here using state obj as data
     const project = projectData;
     // create id for submitting call, or if it already had id (edit) use existing
@@ -20,6 +21,8 @@ function Form(props) {
     // make the call (method / Data)
     // conditional depending upon if this is a PUT or PATCH (create or edit)
     customFetch(props.id ? "PATCH" : "PUT", JSON.stringify(project));
+    // update window (ie. re render App)
+    window.location.reload(true);
   };
 
   // event handler to take form input and build state object

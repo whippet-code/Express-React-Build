@@ -11,10 +11,12 @@ import "./componentStyles.css";
 function Project(props) {
   // props - title, id, desc, url
 
-  function handleClick(e) {
+  function deleteClick(e) {
     // get the id for this project from the buttons grandparent
     const id = e.target.parentElement.parentElement.id;
     customFetch(e.target.value, id);
+    // update window (ie. re render App)
+    window.location.reload(true);
   }
 
   const [isEdit, setIsEdit] = useState(false);
@@ -45,7 +47,7 @@ function Project(props) {
           type="button"
           className="delete"
           value="DELETE"
-          onClick={handleClick}
+          onClick={deleteClick}
         >
           Delete
         </button>
