@@ -9,11 +9,14 @@ function Form(props) {
   // prevent default form action upon submitting
   const handleSubmit = (e) => {
     e.preventDefault();
+    // make the fetch call here using state obj as data
+    // need an id
     alert(projectData);
   };
 
   // event handler to take form input and build state object
   const handleChange = (e) => {
+    // take input name & value for each and spread through the object with all the key value pairs (name:value) - effectivly build a new project object to submit in fetch call.
     const name = e.target.name;
     const value = e.target.value;
     setProjectData((values) => ({ ...values, [name]: value }));
@@ -47,8 +50,7 @@ function Form(props) {
           onChange={handleChange}
         ></textarea>
       </label>
-      <input type="submit" />
-      Submit
+      <input type="submit" onClick={handleSubmit} />
     </form>
   );
 }
