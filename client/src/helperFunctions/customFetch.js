@@ -1,22 +1,33 @@
-// Custom fetch call putting all of the get/post/put/delete methods into one reusable helper function
+// Custom fetch call putting all of the post/put/delete methods into one reusable helper function
 
 // params - method to use, data to pass (not required for delete/get)
 function customFetch(method, data) {
   let url = "http://localhost:5000";
   // switch depending upon method
   switch (method) {
-    case "GET":
-      //code get call here
-      console.log("GET call to " + url);
-      return;
+    // Call to add a new project
     case "PUT":
-      //code put call here
-      console.log("PUT call to " + url + "/api");
+      // convert input to send to json-string
+      JSON.stringify(data);
+      // create call url for PUT req
+      url = `${url}/api/${data}`;
+      console.log("PUT call to " + url);
+      fetch(url, { method: "PUT" }).then(() =>
+        console.log("Project added to collection")
+      );
       return;
-    case "POST":
-      //code post call here
-      console.log("POST call to " + url + "/api/" + data);
+    // Call to edit project
+    case "PATCH":
+      // convert input to send to json-string
+      JSON.stringify(data);
+      // create call url for PATCH req
+      url = `${url}/api/${data}`;
+      console.log("PATCH call to " + url);
+      fetch(url, { method: "PATCH" }).then(() =>
+        console.log("Project updated")
+      );
       return;
+    // Call to delete a project
     case "DELETE":
       //code delete call here
       console.log("DELETE call to " + url + "/api/" + data);

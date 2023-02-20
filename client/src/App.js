@@ -20,10 +20,12 @@ function App() {
     fetch("http://localhost:5000/api")
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, [customFetch]);
+  }, []);
 
   // state for add project form
   const [isAddProject, setAddProject] = useState(false);
+
+  // State for CRUD operations via customFetch & project data????????????????
 
   function addProject() {
     setAddProject((prevState) => (prevState = !prevState));
