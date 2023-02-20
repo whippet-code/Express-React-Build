@@ -11,8 +11,14 @@ function Form(props) {
 
   // prevent default form action upon submitting
   const handleSubmit = (e) => {
-    // prevent default if form is correct?
     e.preventDefault();
+    //verify form is filled in
+    // do so by checking projectData state
+    if (!projectData.title || !projectData.url || !projectData.description) {
+      // if any fields missing, alert user.
+      alert("Please fill in the complete form");
+      return;
+    }
     // make the fetch call here using state obj as data
     const project = projectData;
     // create id for submitting call, or if it already had id (edit) use existing
@@ -47,7 +53,7 @@ function Form(props) {
       />
       <label>Link</label>
       <input
-        type="url"
+        type="text"
         name="url"
         value={projectData.url || ""}
         onChange={handleChange}
