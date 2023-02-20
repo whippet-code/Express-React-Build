@@ -131,4 +131,4 @@ myApi.patch("/api/:editedItem", (req, res) => {
 });
 
 // Fire up the server
-myApi.listen(port, console.log("Listening started"));
+myApi.listen(port, console.log("Listening started on port " + port));

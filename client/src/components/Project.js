@@ -30,7 +30,7 @@ function Project(props) {
       <a href={props.url}>
         <h5>{props.url}</h5>
       </a>
-      <hr></hr>
+      <p>.........................</p>
       <section>{props.description}</section>
       <section className="buttons">
         <button

@@ -16,6 +16,7 @@ function customFetch(method, data) {
     // Call to edit project
     case "PATCH":
       // create call url for PATCH req
+      console.log("Patch call");
       url = `${url}/api/${data}`;
       fetch(url, { method: "PATCH" }).then(() =>
         console.log("Project updated")

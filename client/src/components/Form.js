@@ -5,8 +5,6 @@ import customFetch from "../helperFunctions/customFetch";
 
 import "./componentStyles.css";
 
-// Create one form for both creating new projects and updating existing.
-
 function Form(props) {
   // State for project info????? OR state to track method of call to make upon submit
   const [projectData, setProjectData] = useState({});
@@ -16,7 +14,7 @@ function Form(props) {
     e.preventDefault();
     // make the fetch call here using state obj as data
     const project = projectData;
-    // create id for submitting call, or if it already has id (this is an edit) use existing
+    // create id for submitting call, or if it already had id (edit) use existing
     const id = props.id ? props.id : new Date().toJSON();
     project.id = id;
     // make the call (method / Data)
@@ -62,7 +60,9 @@ function Form(props) {
           name="description"
           value={projectData.description || ""}
           onChange={handleChange}
-        ></textarea>
+        >
+          {props.description}
+        </textarea>
       </label>
       <input type="submit" onClick={handleSubmit} />
     </form>

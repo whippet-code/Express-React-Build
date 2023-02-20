@@ -22,8 +22,6 @@ function App() {
   // state for add project form
   const [isAddProject, setAddProject] = useState(false);
 
-  // State for CRUD operations via customFetch & project data????????????????
-
   function addProject() {
     setAddProject((prevState) => (prevState = !prevState));
   }
@@ -46,7 +44,7 @@ function App() {
 
       {data.map((project) => (
         <Project
-          key={project.id}
+          key={`id${project.id}`}
           id={project.id}
           title={project.title}
           url={project.url}
