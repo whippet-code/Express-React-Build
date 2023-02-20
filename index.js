@@ -59,6 +59,7 @@ function editItem(editedItem) {
   const dataFile = getData();
   // find item via id (confirm in array)
   const isFound = dataFile.find((item) => editedItem.id == item.id);
+  console.log(isFound);
   // if found edit it
   if (isFound) {
     // "overwrite" itme in arr. Find index, splice and add new version
@@ -123,7 +124,6 @@ myApi.delete("/api/:itemId", (req, res) => {
 myApi.patch("/api/:editedItem", (req, res) => {
   const item = JSON.parse(req.params.editedItem);
   const result = editItem(item);
-
   // confirm result of request
   result
     ? res.send("File updated")

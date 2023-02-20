@@ -3,17 +3,17 @@
 // All reqsgoing to port 5000.
 
 // Request to return fiull file data
-GET http://localhost:5000/api
+//GET http://localhost:5000/api
 
 // Specific get request for object with id = value sent
-GET http://localhost:5000/4
+//GET http://localhost:5000/4
 
 // Put request to add item to file (sending json) api expects json data
-PUT http://localhost:5000/api/{"id":3, "title":"Developer Portfolio", "description": "Showcase of developers work", "URL": "www.supernice.dev"}
+//PUT http://localhost:5000/api/{"id":3, "title":"Developer Portfolio", "description": "Showcase of developers work", "URL": "www.supernice.dev"}
 
 // delete request with item id sent in request
-DELETE http://localhost:5000/api/4
+//DELETE http://localhost:5000/api/4
 
 
 // edit item request patch req (expects json data)
-PATCH http://localhost:5000/api/{"id":3, "title":"Developer Portfolio site", "description": "Showcase of developers work", "URL": "www.superamazing.dev"}
+PATCH http://localhost:5000/api/{"id":"4", "title":"Another Amazing Developer Portfolio site", "description": "Showcase of developers work", "URL": "www.superamazingsite.dev"}
